@@ -1,0 +1,39 @@
+html{
+    height: 100%; /* required for h-100 class and vertical center position */
+}
+
+body{
+    background: url('/media/homepage_background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 280px);
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.logo-font {
+    font-weight: 500;
+}
+
+.jumbo-font {
+    font-weight: 400;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+
+
+/* -------------- media queries -------------- */
+
+@media(min-width: 992px) {
+    .top-container {
+        padding-top: 280px;
+    }
+}
