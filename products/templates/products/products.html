@@ -16,10 +16,52 @@
 {% endblock %}
 
 {% block main_content %}
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col">
-                {{ products }}
+            <div class="col mb-2 text-center">
+                <h2 class="text-uppercase ">Products</h2>
+                <hr class="w-50 mb-1 border border-dark border-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 offset-1">
+                <div class="row mt-1 mb-2"></div>
+                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4">
+                     
+                    {% for product in products %}
+
+                    <div class="col mb-4">
+                        <div class="card h-100 bg-transparent text-dark border-0">
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}" class="card-img" alt="{{ product.name }}">
+                            {% else %}
+                                <img src="{{ MEDIA_URL }}.not-image.PNG" class="card-img" alt="{{ product.name }}">
+                            {% endif %}
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text"></p>
+                            <p class="lead text-center font-weight-bold">&euro; {{ product.price }}</p>
+                            {% if product.category %}
+                                <p class="small mt-1 mb-0 text-center">
+                                    <a class="text-muted" href="">
+                                        <i class="fas fa-tag mr-1"></i>{{ product.category.display_name }}
+                                    </a>
+                                </p>
+                            {% endif %}
+                            {% if product.rating %}
+                                <small class="text-muted"><i class="fas fa-star mr-1"> {{ product.rating }} / 5 </i></small>
+                            {% else %}
+                                <small class="text-muted">No Rating</small>
+                            {% endif %}
+                        </div>
+                        <div class="card-footer bg-transparent pt-0 border-0 text-center">
+                            
+                        </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                
+                </div>
             </div>
         </div>
     </div>

@@ -5,7 +5,7 @@ html{
 body{
     background: url('/media/homepage_background_lg.jpg') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 280px);
+    height: calc(100vh - 180px);
     color: #000;
     font-family: 'Roboto', sans-serif;
 }
@@ -37,7 +37,7 @@ body{
 
 @media(min-width: 992px) {
     .top-container {
-        padding-top: 280px;
+        padding-top: 180px;
     }
 }
 
