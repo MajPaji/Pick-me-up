@@ -1,0 +1,77 @@
+[
+  {
+    "pk": 1,
+    "model": "products.product",
+    "fields": {
+      "product_type": "coffee",
+      "name": "Vietnam - Robusta",
+      "description": "We can say with some degree of confidence the only thing not affected by the war in Vietnam was coffee. In Vietnam, people prefer the Robusta coffee bean with a strong taste. In fact, Vietnam can be said to be the native land of Robusta. Vietnam is among top coffee exporters in the world.",
+      "flavor": "vanilla",
+      "price": 7.11,
+      "category": 1,
+      "rating": 4.6,
+      "image_url": "",
+      "image": "img-001.PNG"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "products.product",
+    "fields": {
+      "product_type": "coffee",
+      "name": "Indonesia - Robusta & Arabica",
+      "description": "Indonesia, which we frequently hear associated with interesting coffee types, produces 660,000,000 kg of coffee per year. Although quality and taste pale in comparison to Brazil and Colombia, it has an important place in global coffee production.",
+      "flavor": "caramel",
+      "price": 4.99,
+      "category": 2,
+      "rating": 3.7,
+      "image_url": "",
+      "image": "img-002.PNG"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.product",
+    "fields": {
+      "product_type": "coffee",
+      "name": "Brazil - Arabica",
+      "description": "As you know, Brazil is one of the top coffee producing countries. In Brazil, 2,594,100 tons of coffee was produced in 2016. Among the reasons for the coffee grown in Brazil being so tasty are the wide production areas and the premium quality of the product. The coffee produced in Brazil is often preferred because it has low acidity.",
+      "flavor": "chocolate and caramel",
+      "price": 6.99,
+      "category": 3,
+      "rating": 4.7,
+      "image_url": "",
+      "image": "img-003.PNG"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "products.product",
+    "fields": {
+      "product_type": "coffee",
+      "name": "India - Arabica & Robusta ",
+      "description": "Arabica and Robusta coffee beans are grown abundantly in India. The much renowned coffee beans grown in the south region of the country are known for their soft taste and high levels of acidity.",
+      "flavor": "fruity",
+      "price": 5.27,
+      "category": 3,
+      "rating": 3.8,
+      "image_url": "",
+      "image": "img-004.PNG"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "products.product",
+    "fields": {
+      "product_type": "coffee",
+      "name": "Colombia - Arabica",
+      "description": "Colombia, which claims a fair share of coffee production with 810,000,000 kg per year, is just behind Brazil in terms of taste with its Arabica coffee bean. Among the delicious coffee types of Colombia are Extra and Supremo.",
+      "flavor": "herby",
+      "price": 7.21,
+      "category": 1,
+      "rating": 4.5,
+      "image_url": "",
+      "image": "img-005.PNG"
+    }
+  }
+]

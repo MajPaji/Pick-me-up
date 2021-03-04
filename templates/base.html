@@ -37,19 +37,12 @@
   <body>
 
     <header class="container-fluid fixed-top">
-        <div class="row bg-white pt-lg-2 d-lg-flex">
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h1 class="logo-font text-uppercase text-dark">Pick me up</h1>
-                </a>
-            </div>
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0"></div>
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <ul class="list-inline list-unstyled text-center text-lg-right my-1">
-                    <li class="list-inline-item dropdown">
+        <div class="row bg-white pt-2 d-lg-flex">
+            <div class="col-3 col-sm-4 text-left">
+               <li class="list-inline-item dropdown">
                         <a class="nav-link border-0 bg-white text-dark text-center" id="user-dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div><i class="far fa-user fa-lg"></i></div>
-                            <p class="my-1">My Account</p>
+                            <p class="my-1">Account</p>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="user-dropdownMenuButton">
                             {% if request.user.is_authenticated %}
@@ -64,21 +57,33 @@
                             {% endif %}
                         </div>
                     </li>
-                    <li class="list-inline-item">
-                        <a href="#" class="{% if total_cost %} text-info {% else %} text-dark {% endif %} nav-link text-center">
-                            <div><i class="fas fa-shopping-basket fa-lg"></i></div>
-                            <p my-1>
-                                {% if total_cost %}
-                                    &euro;{{ total_cost|floatformat:2 }}
-                                {% else %}
-                                    &euro;0.00
-                                {% endif %}
-                            </p>
-                        </a>
-                    </li>
-                </ul>
+            </div>
+            <div class="col-6 col-sm-4 text-center d-flex align-items-center justify-content-center">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                    <h1 class="logo-font text-uppercase text-dark text-center text-shadow">Pick me up</h1>
+                </a>
+            </div>
+            <div class="col-3 col-sm-4 d-flex justify-content-end">
+                    <a href="#" class="nav-link border-0 bg-white text-center {% if total_cost %} text-info {% else %} text-dark {% endif %}">
+                        <div><i class="fas fa-shopping-basket fa-lg"></i></div>
+                        <p class="my-1 d-flex justify-content-center">
+                            {% if total_cost %}
+                                &euro;{{ total_cost|floatformat:2 }}
+                            {% else %}
+                                &euro;0.00
+                            {% endif %}
+                        </p>
+                    </a>
             </div>
         </div>
+        
+        <div class="row bg-white border-top py-2">
+            
+                {% include 'includes/main-navbar.html' %}
+
+        </div>
+        
+     
     </header>
 
     {% if messages %}

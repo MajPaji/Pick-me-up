@@ -1,0 +1,26 @@
+[
+  {
+    "pk": 1,
+    "model": "products.category",
+    "fields": {
+      "name": "new_arrivals",
+      "display_name": "New Arrivals"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "products.category",
+    "fields": {
+      "name": "deals",
+      "display_name": "Deals"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.category",
+    "fields": {
+      "name": "clearance",
+      "display_name": "Clearance"
+    }
+  }
+]
