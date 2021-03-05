@@ -19,3 +19,9 @@ body {
     margin-right: auto;
 }
 
+.card-img--lg {
+    height: 300px;
+    width: 300px;
+}
+
+

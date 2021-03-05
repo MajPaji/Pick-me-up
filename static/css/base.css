@@ -47,11 +47,18 @@ body{
     }
 }
 
-@media(max-width: 992px) {
+@media(max-width: 991px) {
     .logo-font {
         font-size: 1.4rem;
         font-weight: 700;
-       
+    }
+
+    .top-container{
+        padding-top: 200px;
+    }
+
+    body {
+        height: (100vh - 200px);
     }
 }
 

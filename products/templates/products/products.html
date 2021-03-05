@@ -33,9 +33,13 @@
                     <div class="col mb-4">
                         <div class="card h-100 bg-transparent text-dark border-0">
                             {% if product.image %}
+                            <a href="{% url 'product_detail' product.id %}">
                                 <img src="{{ product.image.url }}" class="card-img" alt="{{ product.name }}">
+                            </a>
                             {% else %}
+                            <a href="{% url 'product_detail' product.id %}">
                                 <img src="{{ MEDIA_URL }}.not-image.PNG" class="card-img" alt="{{ product.name }}">
+                            </a>
                             {% endif %}
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ product.name }}</h5>
