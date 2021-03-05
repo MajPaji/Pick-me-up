@@ -45,10 +45,15 @@
                             <h5 class="card-title">{{ product.name }}</h5>
                             <p class="card-text"></p>
                             <p class="lead text-center font-weight-bold">&euro; {{ product.price }}</p>
+                            <p class="small mt-1 mb-0">
+                                <a class="text-muted" href="">
+                                    <i class="fas fa-tag mr-1"></i>{{ product.product_type }}
+                                </a>
+                            </p>
                             {% if product.category %}
                                 <p class="small mt-1 mb-0 text-center">
                                     <a class="text-muted" href="">
-                                        <i class="fas fa-tag mr-1"></i>{{ product.category.display_name }}
+                                        <i class="fas fa-tags mr-1"></i>{{ product.category.display_name }}
                                     </a>
                                 </p>
                             {% endif %}
