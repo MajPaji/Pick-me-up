@@ -21,6 +21,7 @@
             <div class="col mb-2 text-center">
                 <h2 class="text-uppercase ">Products</h2>
                 <hr class="w-50 mb-1 border border-dark border-1">
+                {% include 'includes/search-sort-navbar.html' %}
             </div>
         </div>
         <div class="row">
@@ -74,4 +75,35 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block footer_js %}
+    {{ block.super }}
+        <script type="text/javascript">
+            $('#sort-selector').change(function() {
+                var selector=$(this);
+                var currentURL = new URL(window.location);
+
+                var selectValue = selector.val();
+
+                currentURL.searchParams.delete('q'); /* this removes any search keyword before filtering */
+                
+                if (selectValue !='reset') {
+                    var prtype = selectValue.split('_')[0];
+                    var sort = selectValue.split('_')[1];
+                    var direction = selectValue.split('_')[2];
+
+                    currentURL.searchParams.set('prtype', prtype);
+                    currentURL.searchParams.set('sort', sort);
+                    currentURL.searchParams.set('direction', direction);
+
+                    window.location.replace(currentURL);
+                } else {
+                    currentURL.searchParams.delete('prtype');
+                    currentURL.searchParams.delete('sort');
+                    currentURL.searchParams.delete('direction');
+                    window.location.replace(currentURL);
+                }          
+            })
+        </script>
 {% endblock %}

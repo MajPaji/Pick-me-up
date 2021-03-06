@@ -1,0 +1,38 @@
+<div class="row mt-3 mb-2">
+    <div class="col-12 col-md-6">
+        {% if search_keyword %}
+            {{ products.count }} Products found for <strong>{{ search_keyword }}</strong>
+        {% endif %}
+    </div>
+
+    <div class="col-12 col-md-6 d-flex justify-content-center my-auto">
+        {% if selected_bean %}
+            <div class="border rounded-pill text-uppercase bg-white d-flex justify-content-right prtype">{{ selected_bean }}</div>
+        {% endif %}
+        <div class="sort-select-wrapper w-50">
+             <select id="sort-selector" class="custom-select custom-select-sm border rounded-pill border-black"> 
+                <option value="reset" {% if current_sorting == 'None_None_None' %}selected{% endif %}>Sort by ...</option>
+                <optgroup label="Coffee Beans">  
+                    <option value="coffee_price_asc" {% if current_sorting == 'coffee_price_asc' %}selected{% endif %}>Price (low to high)</option>
+                    <option value="coffee_price_desc" {% if current_sorting == 'coffee_price_desc' %}selected{% endif %}>Price (high to low)</option>
+                    <option value="coffee_rating_asc" {% if current_sorting == 'coffee_rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                    <option value="coffee_rating_desc" {% if current_sorting == 'coffee_rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                    <option value="coffee_name_asc" {% if current_sorting == 'coffee_name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                    <option value="coffee_name_desc" {% if current_sorting == 'coffee_name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                    <option value="coffee_category_asc" {% if current_sorting == 'coffee_category_asc' %}selected{% endif %}>Category (A-Z)</option>
+                    <option value="coffee_category_desc" {% if current_sorting == 'coffee_category_desc' %}selected{% endif %}>Category (Z-A)</option>
+                </optgroup>
+                <optgroup label="Cocoa Beans">  
+                    <option value="cocoa_price_asc" {% if current_sorting == 'cocoa_price_asc' %}selected{% endif %}>Price (low to high)</option>
+                    <option value="cocoa_price_desc" {% if current_sorting == 'cocoa_price_desc' %}selected{% endif %}>Price (high to low)</option>
+                    <option value="cocoa_rating_asc" {% if current_sorting == 'cocoa_rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                    <option value="cocoa_rating_desc" {% if current_sorting == 'cocoa_rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                    <option value="cocoa_name_asc" {% if current_sorting == 'cocoa_name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                    <option value="cocoa_name_desc" {% if current_sorting == 'cocoa_name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                    <option value="cocoa_category_asc" {% if current_sorting == 'cocoa_category_asc' %}selected{% endif %}>Category (A-Z)</option>
+                    <option value="cocoa_category_desc" {% if current_sorting == 'cocoa_category_desc' %}selected{% endif %}>Category (Z-A)</option>
+                </optgroup>  
+            </select>
+        </div>
+    </div>
+</div>

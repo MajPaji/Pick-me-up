@@ -29,6 +29,8 @@ def products_all(request):
             sort_key = sort
             if sort_key == 'name':
                 products = products.annotate(lower_name=Lower('name'))
+            if sort_key == 'category':
+                sort_key = 'category__name'
 
             if 'direction' in request.GET:
                 direction = request.GET['direction']
@@ -48,9 +50,10 @@ def products_all(request):
                 return redirect(reverse('products'))
             queries = Q(name__icontains=query) | Q(
                 description__icontains=query) | Q(
-                    product_type__icontains=query)
+                    prtype__icontains=query)
             products = products.filter(queries)
     current_sorting = f'{prtype}_{sort}_{direction}'
+
 
     template = 'products/products.html'
     context = {

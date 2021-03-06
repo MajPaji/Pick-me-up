@@ -29,4 +29,11 @@ body {
     width: 300px;
 }
 
+.prtype {
+   margin: inherit;
+   font-size: 0.8rem;
+   padding: 5px;
+   margin-right: 3px;
+}
+
 
