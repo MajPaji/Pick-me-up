@@ -7,10 +7,11 @@
                         Coffee
                     </a>
                     <div class="dropdown-menu border-0" aria-labelledby="all-coffee-link">
-                        <a href="" class="dropdown-item">By Price</a>
-                        <a href="" class="dropdown-item">By Rating</a>
-                        <a href="" class="dropdown-item">By Category</a>
-                        <a href="" class="dropdown-item">All Products</a>
+                        <a href="{% url 'products' %}?prtype=coffee&sort=price&direction=asc" class="dropdown-item">By Price</a>
+                        <a href="{% url 'products' %}?prtype=coffee&sort=rating&direction=desc" class="dropdown-item">By Rating</a>
+                        <a href="{% url 'products' %}?prtype=coffee&sort=category&direction=asc" class="dropdown-item">By Category</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{% url 'products' %}?prtype=coffee" class="dropdown-item">All Coffee Beans</a>
                     </div>
                 </li>
 
@@ -19,10 +20,11 @@
                         Cocoa
                     </a>
                     <div class="dropdown-menu border-0" aria-labelledby="all-cacao-link">
-                        <a href="" class="dropdown-item">By Price</a>
-                        <a href="" class="dropdown-item">By Rating</a>
-                        <a href="" class="dropdown-item">By Category</a>
-                        <a href="" class="dropdown-item">All Products</a>
+                        <a href="{% url 'products' %}?prtype=cocoa&sort=price&direction=asc" class="dropdown-item">By Price</a>
+                        <a href="{% url 'products' %}?prtype=cocoa&sort=rating&direction=desc" class="dropdown-item">By Rating</a>
+                        <a href="{% url 'products' %}?prtype=cocoa&sort=category&direction=asc" class="dropdown-item">By Category</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{% url 'products' %}?prtype=cocoa" class="dropdown-item">All Cocoa Beans</a>
                     </div>
                 </li>
 
@@ -31,10 +33,11 @@
                         Special offers
                     </a>
                     <div class="dropdown-menu border-0" aria-labelledby="all-offer-link">
-                        <a href="" class="dropdown-item">New arrivals</a>
-                        <a href="" class="dropdown-item">Deals</a>
-                        <a href="" class="dropdown-item">Clearance</a>
-                        <a href="" class="dropdown-item">All Products</a>
+                        <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item">New arrivals</a>
+                        <a href="{% url 'products' %}?category=deals" class="dropdown-item">Deals</a>
+                        <a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="dropdown-item">All Special Offers</a>
                     </div>
                 </li>
                 
