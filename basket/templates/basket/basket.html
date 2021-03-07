@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sub_css %}
+    <link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
+{% endblock %}
+
+{% block sub_header %}
+    <div class="container top-container">
+        <div class="row">
+            <div class="col">
+                <div class="col mb-2 text-center">
+                    <h2 class="text-uppercase ">Shopping Cart <i class="fas fa-shopping-cart fa-lg"></i></h2>
+                    <hr class="w-50 mb-1 border border-dark border-1">
+                </div>
+            </div>
+        </div>
+         {% if cart_items %}
+        <div class="row mt-5">
+           
+                <div class="col">
+
+                </div>
+        </div>
+        {% else %}
+        <div class="row mt-3">
+                <div class="col-12">
+                    <p class="lead my-4 text-center">
+                        You shopping list is empty, but it does not to be! 
+                    </p>
+                </div>
+                <div class="col-12 col-sm-auto rounded-pill border border-1 border-dark text-center">
+                    <a href="{% url 'products' %}" class="text-uppercase px-4 py-3 btn btn-lg ">
+                        <i class="fas fa-chevron-circle-left"></i>
+                        <span> Products</span> 
+                    </a>
+                </div>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block main_content %}
+    
+{% endblock %}

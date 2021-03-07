@@ -64,8 +64,8 @@
                 </a>
             </div>
             <div class="col-3 col-sm-4 d-flex justify-content-end">
-                    <a href="#" class="nav-link border-0 bg-white text-center {% if total_cost %} text-info {% else %} text-dark {% endif %}">
-                        <div><i class="fas fa-shopping-basket fa-lg"></i></div>
+                    <a href="{% url 'basket_view' %}" class="nav-link border-0 bg-white text-center {% if total_cost %} text-info {% else %} text-dark {% endif %}">
+                        <div><i class="fas fa-shopping-cart fa-lg"></i></div>
                         <p class="my-1 d-flex justify-content-center">
                             {% if total_cost %}
                                 &euro;{{ total_cost|floatformat:2 }}
