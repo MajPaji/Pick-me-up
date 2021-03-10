@@ -15,11 +15,57 @@
                 </div>
             </div>
         </div>
-         {% if cart_items %}
+         {% if basket_items %}
         <div class="row mt-5">
-           
-                <div class="col">
-
+           <table class="table table-striped">
+            <thead>
+                <tr>
+                <th scope="col">Item Info</th>
+                <th scope="col"></th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price(kg)</th>
+                <th scope="col">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in basket_items %}
+                    <tr>
+                        <td class="w-25">
+                            <img src="{{ item.product.image.url }}" class="card-img card-img--sm" alt="{{ item.product.name }}">
+                        </td>
+                        <td>
+                            <p class="my-5"><strong>{{ item.product.name }}</strong></p>
+                        </td>
+                        <td>
+                            <p class="my-5"><strong>{{ item.qty }}</strong></p>
+                        </td>
+                        <td>
+                            <p class="my-5"><strong>{{ item.product.price }}</strong></p>
+                        </td>
+                        <td>
+                            <p class="my-5"><strong>{{ item.product.price }}</strong></p>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12 text-right">
+                <h6><strong>Total: </strong>&euro;{{ total_cost|floatformat:2 }}</h6>
+                <h5><strong>Total(incl. {{ TAX_PERCENTAGE }}% Tax): </strong>&euro;{{ total_plus_tax|floatformat:2 }}</h5>
+            </div>
+        </div>
+        <div class="row mt-2 pb-3">
+                <div class="col-12 d-flex justify-content-end">
+                    <a href="{% url 'products' %}" class="text-uppercase px-4 py-3 btn btn-lg btn-rounded-left border border-1 border-dark text-center">
+                        <i class="fas fa-chevron-circle-left fa-lg"></i>
+                        <span> Products</span> 
+                    </a>
+                    <a href="#" class="ml-1 text-uppercase px-4 py-3 btn btn-lg btn-rounded-right border border-1 border-dark text-center">
+                        <span> Checkout </span>
+                        <i class="fas fa-chevron-circle-right fa-lg"></i>
+                    </a>
                 </div>
         </div>
         {% else %}
