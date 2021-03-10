@@ -1,6 +1,7 @@
 from django.conf import settings
 from decimal import Decimal
 
+
 def basket_contents(request):
 
     basket_items = []
@@ -15,5 +16,4 @@ def basket_contents(request):
         'product_count': product_count,
         'total_plus_tax': total_plus_tax,
     }
-
     return context

@@ -62,7 +62,33 @@
                             <p class="card-text mt-3"><strong>Flavor:</strong> {{ product.flavor }}</p>
                         {% endif %}
                     </div>
+                    <form class="form" method="POST" action="{% url 'add_to_basket' product.id %}">
+                    {% csrf_token %}
+                    <div class="col-12">
+                        <p class="mt-4"><strong>Quantity (kg):</strong></p>
+                        <div class="w-50 form-group">
+                            <div class="input-group">
+                                <input type="form-control" class="border rounded-pill text-center" type="number" name="quantity" value="1" min="1" max="99" id="id_qty_{{ product.id }}" data-item_id="{{ product.id }}"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5 ">
+                        <div class="col-3"></div>
+                        <div class="col-3"></div>
+                        <div class="col-6">                        
+                            <a href="{% url 'products' %}" class="text-uppercase px-4 py-3 btn btn-lg col-5 btn-rounded-left border border-1 border-dark text-center">
+                                <i class="fas fa-chevron-circle-left fa-lg"></i>
+                                <span> Products</span> 
+                            </a>
+                            <input type="submit" class="text-uppercase px-4 py-3 btn btn-lg col-5 btn-rounded-right border border-1 border-dark text-center" value="Add">
+                        </div>
+                    </div>
+                    <input type="hidden" name="current_URL" value="{{ request.path }}">
+                </form>
+
                 </div>
+
+                
             </div>
         </div>
         
