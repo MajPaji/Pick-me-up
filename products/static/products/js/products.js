@@ -13,6 +13,7 @@ $(document).ready(function(){
         var currentQty = parseInt($(this).parent().prev().val());
         $(this).parent().prev().val(currentQty+1);
         var itemId = $(this).data('item_id');
+        $(`#update_btn_${itemId}`).css("display", "block");
         handleButtonStatus(itemId);
     })
 
@@ -21,19 +22,23 @@ $(document).ready(function(){
         var currentQty = parseInt($(this).parent().next().val());
         $(this).parent().next().val(currentQty-1);
         var itemId = $(this).data('item_id');
-        handleButtonStatus(itemId);
-    })
-
-    $('.qty_input').change(function() {
-        var itemId = $(this).data('item_id');
+        $(`#update_btn_${itemId}`).css("display", "block");
         handleButtonStatus(itemId);
     })
 
     var allQtys = $('.qty_input');
     for(var i=0; i < allQtys.length; i++){
         var itemId=$(allQtys[i]).data('item_id');
-        handleButtonStatus(itemId)
+        $(`#update_btn_${itemId}`).css("display", "none");
+        handleButtonStatus(itemId);
     }
+
+    $('.qty_input').change(function() {
+        var itemId = $(this).data('item_id');
+        $(`#update_btn_${itemId}`).css("display", "block");
+        handleButtonStatus(itemId);
+    })
+
 
 })
 

@@ -70,9 +70,11 @@ body{
 }
 
 .btn-rounded-right{
-     border-top-right-radius: 500px;
+    border-top-right-radius: 500px;
     border-bottom-right-radius: 500px;
 }
+
+
 
 
 

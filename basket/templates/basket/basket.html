@@ -1,12 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
+{% load basket_tools %}
 
 {% block sub_css %}
     <link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
 {% endblock %}
 
 {% block sub_header %}
-    <div class="container top-container">
+     <div class="container top-container">
+        <div class="row">
+            <div class="col">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main_content %}
+    <div class="container">
         <div class="row">
             <div class="col">
                 <div class="col mb-2 text-center">
@@ -21,29 +32,57 @@
             <thead>
                 <tr>
                 <th scope="col">Item Info</th>
+                <th class="text-center" scope="col">Quantity</th>
+                <th class="text-center" scope="col">Price(kg)</th>
+                <th class="text-center" scope="col">Subtotal</th>
                 <th scope="col"></th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Price(kg)</th>
-                <th scope="col">Subtotal</th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in basket_items %}
                     <tr>
-                        <td class="w-25">
+                        <td class="w-25 align-middle">
+                            <p><strong>{{ item.product.name }}</strong></p>
                             <img src="{{ item.product.image.url }}" class="card-img card-img--sm" alt="{{ item.product.name }}">
                         </td>
-                        <td>
-                            <p class="my-5"><strong>{{ item.product.name }}</strong></p>
+                        <td class="w-25 align-middle">
+                            <p>
+                            <form action="{% url 'update_basket' item.item_id %}" method="POST" class="text-center">
+                                {% csrf_token %}
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <button class="decrease-qty btn btn-black " data-item_id="{{ item.item_id }}" id="decrease-qty_{{ item.item_id }}">
+                                            <span class="icon">
+                                                <i class="class fas fa-minus"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <input type="number" class="border rounded-pill w-25 text-center form-control qty_input" aria-describedby="qty_of_products"
+                                    type="number" name="quantity" value="{{ item.qty }}" min="1" max="99" id="id_qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}"> 
+                                    <div class="input-group-append">
+                                        <button class="increase-qty btn btn-black" data-item_id="{{ item.item_id }}" id="increase-qty_{{ item.item_id }}">
+                                            <span class="icon">
+                                                <i class="class fas fa-plus"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="text-center w-50 mx-auto">
+                                <a id="update_btn_{{ item.item_id }}" class="update-btn text-uppercase btn btn-sm rounded-pill border border-1 border-dark">Update</a>
+                            </div>
+                            </p>
                         </td>
-                        <td>
-                            <p class="my-5"><strong>{{ item.qty }}</strong></p>
+                        <td class="w-25 align-middle">
+                            <p class="text-center"><strong>{{ item.product.price }}</strong></p>
                         </td>
-                        <td>
-                            <p class="my-5"><strong>{{ item.product.price }}</strong></p>
+                        <td class="w-25 align-middle">
+                            <p class="text-center"><strong>{{ item.product.price | calculate_subtotal:item.qty }}</strong></p>
                         </td>
-                        <td>
-                            <p class="my-5"><strong>{{ item.product.price }}</strong></p>
+                        <td class="w-5 align-middle">
+                            <a id="remove_btn_{{ item.item_id }}" class="remove-btn text-uppercase btn btn-sm">
+                                Remove <i class="fas fa-trash-alt"></i>
+                            </a>
                         </td>
                     </tr>
                 {% endfor %}
@@ -86,6 +125,30 @@
     </div>
 {% endblock %}
 
-{% block main_content %}
-    
+
+{% block footer_js %}
+{{ block.super }}
+    <script src="{% static 'products/js/products.js' %}"></script>
+
+    <script type="text/javascript">
+        $('.update-btn').click(function(ev){
+            var form = $(this).parent().prev();
+            console.log(form)
+            form.submit();
+        })
+
+        $('.remove-btn').click(function(ev){
+            var csrftocken = "{{csrf_token }}"
+            var item_id = parseInt($(this).attr('id').split('remove_btn_')[1]);
+            console.log(item_id)
+            var template = `/basket/remove/${item_id}/`
+            var data = {'csrfmiddlewaretoken': csrftocken}
+
+            $.post(template, data)
+             .done(function(){
+                location.reload();
+            })
+        })
+
+    </script>
 {% endblock %}
