@@ -74,8 +74,20 @@ body{
     border-bottom-right-radius: 500px;
 }
 
+.message-container {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 9999999;
+}
 
+.toast-title {
+    height: 3px;
+}
 
+.toast-style {
+    overflow: visible;
+}
 
 
 

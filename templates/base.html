@@ -78,7 +78,7 @@
         </div>
         
         <div class="row bg-white border-top py-2">
-            
+                
                 {% include 'includes/main-navbar.html' %}
 
         </div>
@@ -87,7 +87,21 @@
     </header>
 
     {% if messages %}
-        <div class="message-container"></div>
+        <div class="message-container">
+           {% for message in messages %}
+                {% with message.level as L %}
+                {% if L == 25 %}
+                    {% include 'includes/toasts/toast_success.html' %}
+                {% elif L == 30 %}
+                    {% include 'includes/toasts/toast_warning.html' %}
+                {% elif L == 40 %}
+                    {% include 'includes/toasts/toast_error.html' %}
+                {% else %} 
+                    {% include 'includes/toasts/toast_info.html' %}
+                {% endif %}
+                {% endwith %}
+           {% endfor %} 
+        </div>
     {% endif %}
 
     {% block sub_header %}
@@ -97,6 +111,9 @@
     {% endblock %}
     
     {% block footer_js %}
+    <script type="text/javascript">
+        $('.toast').toast('show');
+    </script>
     {% endblock %}
 
   </body>
