@@ -21,7 +21,7 @@ class ReceiptForm(forms.ModelForm):
             'postcode': 'Postal Code',
             'town_or_city': 'Town or City',
             'street_address': 'Street Address',
-            'county': 'County, State or Locality',
+            'country': 'Country',
         }
 
         self.fields['full_name'].widget.attrs['autofocus'] = True

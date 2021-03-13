@@ -43,7 +43,11 @@
                     <tr>
                         <td class="w-25 align-middle">
                             <p><strong>{{ item.product.name }}</strong></p>
+                            {% if item.product.image %}
                             <img src="{{ item.product.image.url }}" class="card-img card-img--sm" alt="{{ item.product.name }}">
+                            {% else %}
+                            <img src="{{ MEDIA_URL }}noimage.png" class="card-img card-img--sm" alt="{{ item.product.name }}">
+                            {% endif %}
                         </td>
                         <td class="w-25 align-middle">
                             <p>
@@ -101,7 +105,7 @@
                         <i class="fas fa-chevron-circle-left fa-lg"></i>
                         <span> Products</span> 
                     </a>
-                    <a href="#" class="ml-1 text-uppercase px-4 py-3 btn btn-lg btn-rounded-right border border-1 border-dark text-center">
+                    <a href="{% url 'checkout' %}" class="ml-1 text-uppercase px-4 py-3 btn btn-lg btn-rounded-right border border-1 border-dark text-center">
                         <span> Checkout </span>
                         <i class="fas fa-chevron-circle-right fa-lg"></i>
                     </a>
