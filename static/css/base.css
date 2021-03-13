@@ -89,6 +89,10 @@ body{
     overflow: visible;
 }
 
+.hr-dashed {
+    border: 1px dashed #000;
+}
+
 
 
 /* -------------- media queries -------------- */
@@ -119,6 +123,8 @@ body{
         height: (100vh - 200px);
     }
 }
+
+
 
 
 

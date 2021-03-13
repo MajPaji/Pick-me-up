@@ -28,7 +28,59 @@
         </div>
         <div class="row">
                 <div class="col col-sm-6 mt-5 text-center mx-auto">
-                    
+                    <div class="row">
+                        <div class="col-3 text-left"><strong>Receipt Number:</strong></div>
+                        <div class="col-9 text-right">{{ receipt.receipt_number }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 text-left"><strong>Date:</strong></div>
+                        <div class="col-9 text-right">{{ receipt.date }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 text-left"><strong>Full Name:</strong></div>
+                        <div class="col-9 text-right">{{ receipt.full_name }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 text-left"><strong>Address:</strong></div>
+                        <div class="col-9 text-right">{{ receipt.street_address }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 text-left"><strong>Town or City:</strong></div>
+                        <div class="col-9 text-right">{{ receipt.town_or_city }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 text-left"><strong>Post Code (optional):</strong></div>
+                        <div class="col-9 text-right">{{ receipt.postcode }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 text-left"><strong>Country:</strong></div>
+                        <div class="col-9 text-right">{{ receipt.country }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 text-left"><strong>Email:</strong></div>
+                        <div class="col-9 text-right">{{ receipt.email }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 text-left"><strong>Phone Number:</strong></div>
+                        <div class="col-9 text-right">{{ receipt.phone_number }}</div>
+                    </div>
+
+                    <hr class="hr-dashed">
+                    {% for item in receipt.lineitems.all %}
+                    <div class="row">
+                        <div class="col-8 text-left"><strong>{{ item.product.name }}</strong></div>
+                        <div class="col-4 text-right">{{ item.quantity }} kg ({{ item.product.price }} &euro; per kg)</div>
+                    </div>
+                    {% endfor %}
+                    <br>
+                    <div class="row">
+                        <div class="col-8 text-left"></div>
+                        <div class="col-4 text-right"><strong>total incl. ({{ TAX_PERCENTAGE }} %) tax {{ receipt.total_plus_tax }} &euro;</strong></div>
+                    </div>
+                    <hr class="hr-dashed">
+
+                    <p class="text-left text-muted">A confirmation letter will be sent to your email.</p>
+
                 </div>
         </div>
     </div>
