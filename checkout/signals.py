@@ -13,7 +13,7 @@ def update_on_save(sender, instance, created, **kwargs):
 
     instance.receipt.update_total_cost()
 
-@receiver(post_delete, sender=OrderLineItem)
+@receiver(post_delete, sender=ReceiptLineItem)
 def update_on_delete(sender, instance, **kwargs):
 
     """ 

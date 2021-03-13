@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block sub_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block sub_header %}
+     <div class="container top-container">
+        <div class="row">
+            <div class="col">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="col mb-2 text-center">
+                    <h2 class="text-uppercase ">Thank You <i class="far fa-check-circle"></i></h2>
+                    <hr class="w-50 mb-1 border border-dark border-1">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col col-sm-6 mt-5 text-center mx-auto">
+                    
+                </div>
+        </div>
+    </div>
+{% endblock %}
+
