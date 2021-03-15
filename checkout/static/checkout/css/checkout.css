@@ -60,3 +60,13 @@ body {
     margin: 0;
     height: 100%;
 }
+
+select,
+select option{
+    color: #000
+}
+
+select:invalid,
+select option[value="country"]{
+    color: #aab7c4 !important;
+}
