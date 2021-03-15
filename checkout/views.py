@@ -44,7 +44,11 @@ def checkout(request):
         }
         receipt_form = ReceiptForm(form_data)
         if receipt_form.is_valid():
-            receipt = receipt_form.save()
+            receipt = receipt_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            receipt.stripe_pid = pid
+            receipt.original_basket = json.dumps(basket)
+            receipt.save()
             for item_id, quantity in basket.items():
                 try:
                     product = Product.objects.get(id=item_id)
