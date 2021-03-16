@@ -6,7 +6,7 @@ from django.dispatch import receiver
 from django_countries.fields import CountryField
 
 
-class UserProfileInfo(models.Model):
+class UserProfile(models.Model):
     """
     A user profile to keep defaul
     delivery information and receipt history 
@@ -23,11 +23,11 @@ class UserProfileInfo(models.Model):
         return self.user.username
 
 @receiver(post_save, sender=User)
-def create_or_update_user_profile_info(sender, instance, created, **kwargs):
+def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
     Create or update information for the user profile 
     """
     if created:
-        UserProfileInfo.objects.create(user=instance)
+        UserProfile.objects.create(user=instance)
     # Existing users: just save the profile
     instance.userprofile.save()
