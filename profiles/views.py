@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import UserProfile
 from .forms import UserProfileForm
 from django.contrib import messages
+from checkout.models import Receipt
 
 
 def profile(request):
@@ -24,6 +25,24 @@ def profile(request):
     context = {
         'form': form,
         'receipts': receipts,
+    }
+
+    return render(request, template, context)
+
+
+def receipt_history(request, receipt_number):
+
+    receipt = get_object_or_404(Receipt, receipt_number=receipt_number)
+
+    messages.info(request, (f'This is one of your previous order \
+                confirmation {receipt_number} A confirmation \
+                email was sent on the order date'))
+
+    template = 'checkout/checkout_success.html'
+
+    context = {
+        'receipt': receipt,
+        'from_user_profile': True,
     }
 
     return render(request, template, context)

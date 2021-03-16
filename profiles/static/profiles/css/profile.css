@@ -48,3 +48,8 @@ body {
 #id_default_country option:first-child{
     color: #aab7c4;
 }
+
+.receipt-history {
+    max-height: 384x; 
+    overflow: auto;
+}

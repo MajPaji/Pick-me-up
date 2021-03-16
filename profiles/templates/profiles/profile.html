@@ -32,15 +32,49 @@
                 <form id="user-profile-update-form" class="mb-3" method="POST" action="{% url 'profile' %}">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <button class="ml-1 text-uppercase px-4 py-3 btn btn-lg btn-rounded float-right border border-1 border-dark text-center">
+                    <button class="ml-1 text-uppercase px-4 py-3 btn btn-lg rounded-pill float-right border border-1 border-dark text-center">
                         <span>Update</span>
                         <i class="fas fa-edit"></i>
                     </button>
                 </form>
             </div>
             <div class="col-12 col-md-6">
-                <p class="text-muted">Delivery Info</p>
-                {{ receipts }}
+                <p class="text-muted">Receipt History</p>
+                <div class="receipt-history table-responsive">
+                    <table class="table table-sm table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Receipt Number</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Total Cost incl. Tax</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for receipt in receipts %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'receipt_history' receipt.receipt_number %}"
+                                    title="{{ receipt.receipt_number }}">
+                                        {{ receipt.receipt_number|truncatechars:7 }}
+                                    </a>
+                                </td>
+                                <td>{{ receipt.date }}</td>
+                                <td>
+                                    <ul class="list-unstyled">
+                                        {% for item in receipt.lineitems.all %}
+                                            <li class="small">
+                                                {{ item.product.name }} x {{item.quantity }}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>{{ receipt.total_plus_tax }} &euro;</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>               
         </div>
     </div>

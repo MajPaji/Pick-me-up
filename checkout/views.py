@@ -6,6 +6,8 @@ from .forms import ReceiptForm, Receipt
 from basket.contexts import basket_contents
 from .models import ReceiptLineItem
 from products.models import Product
+from profiles.forms import UserProfileForm
+from profiles.models import UserProfile
 import stripe
 import json
 
@@ -86,7 +88,22 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        receipt_form = ReceiptForm()
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                receipt_form = ReceiptForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'country': profile.default_country,
+                    'postcode': profile.default_postcode,
+                    'town_or_city': profile.default_town_or_city,
+                    'street_address': profile.default_street_address,
+                })
+            except UserProfile.DoesNotExist:
+                receipt_form = ReceiptForm()
+        else:
+            receipt_form = ReceiptForm()
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
@@ -107,8 +124,25 @@ def checkout_success(request, receipt_number):
     Handle successful checkouts
     """
     save_info = request.session.get('save_info')
-
     receipt = get_object_or_404(Receipt, receipt_number=receipt_number)
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the user's profile to the order
+        receipt.user_profile = profile
+        receipt.save()
+
+        if save_info:
+            profile_data = {
+                'default_phone_number': receipt.phone_number,
+                'default_country': receipt.country,
+                'default_postcode': receipt.postcode,
+                'default_town_or_city': receipt.town_or_city,
+                'default_street_address': receipt.street_address,
+            }
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
 
     messages.success(request, f'Order successfully processed! \
         Your receipt number is {receipt_number}. A confirmation \

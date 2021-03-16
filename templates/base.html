@@ -72,7 +72,7 @@
                             {% if total_cost %}
                                 &euro; {{ total_cost|floatformat:2 }} excl. tax
                             {% else %}
-                                &euro;0.00
+                                &euro; 0.00
                             {% endif %}
                         </p>
                     </a>
@@ -92,15 +92,15 @@
         <div class="message-container">
            {% for message in messages %}
                 {% with message.level as L %}
-                {% if L == 25 %}
-                    {% include 'includes/toasts/toast_success.html' %}
-                {% elif L == 30 %}
-                    {% include 'includes/toasts/toast_warning.html' %}
-                {% elif L == 40 %}
-                    {% include 'includes/toasts/toast_error.html' %}
-                {% else %} 
-                    {% include 'includes/toasts/toast_info.html' %}
-                {% endif %}
+                    {% if L == 25 %}
+                        {% include 'includes/toasts/toast_success.html' %}
+                    {% elif L == 30 %}
+                        {% include 'includes/toasts/toast_warning.html' %}
+                    {% elif L == 40 %}
+                        {% include 'includes/toasts/toast_error.html' %}
+                    {% else %} 
+                        {% include 'includes/toasts/toast_info.html' %}
+                    {% endif %}
                 {% endwith %}
            {% endfor %} 
         </div>
