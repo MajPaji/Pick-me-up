@@ -1,0 +1,1 @@
+Pick_me_up confirmation for Receipt Number {{ receipt.receipt_number }}

@@ -1,0 +1,21 @@
+Hello {{ receipt.full_name }}
+
+This is a confirmation of your shopping at Pick me up store. Your receipt information is below:
+
+Receipt Number : {{ receipt.receipt_number }}
+Receipt Date: {{ receipt.date }}
+
+Receipt Total (incl. tax): {{ receipt.total_plus_tax }} &euro;
+
+
+Your parcel will be shipped to {{ receipt.street_address }} in {{ receipt.town_or_city }}, {{ receipt.country }}
+
+We've got your phone number as {{ receipt.phone_number }}
+
+If you have any question, feel free to contact us at {{ contact_email }}
+
+Thank you for your order
+
+Sincerely,
+
+Pick me up team
