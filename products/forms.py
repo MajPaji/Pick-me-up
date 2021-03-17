@@ -10,8 +10,7 @@ class ProductForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders and classes, remove auto-generated
-        labels and set autofocus on first field
+        Add placeholder for product type field
         """
         super().__init__(*args, **kwargs)
         self.fields['prtype'].widget.attrs['placeholder'] = 'coffee or cocoa'

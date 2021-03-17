@@ -39,7 +39,7 @@
                             </a>
                             {% else %}
                             <a href="{% url 'product_detail' product.id %}">
-                                <img src="{{ MEDIA_URL }}.not-image.PNG" class="card-img" alt="{{ product.name }}">
+                                <img src="{{ MEDIA_URL }}noimage.png" class="card-img" alt="{{ product.name }}">
                             </a>
                             {% endif %}
                         <div class="card-body text-center">
