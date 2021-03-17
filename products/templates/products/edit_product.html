@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block sub_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block sub_header %}
+     <div class="container top-container">
+        <div class="row">
+            <div class="col">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="col mb-2 text-center">
+                    <h2 class="text-uppercase ">Edit a Product <i class="fas fa-edit fa-lg"></i></h2>
+                    <hr class="w-50 mb-1 border border-dark border-1">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col col-sm-6 mt-5 text-left mx-auto">
+                    <form method="POST" action="{% url 'edit_product' product.id %}" enctype="multipart/form-data">
+                    {% csrf_token %}    
+                        {{ form | crispy }}
+                    
+                    <div class="form-group d-flex justify-content-end mt-4">
+                            <a href="{% url 'products' %}" class="text-uppercase px-4 py-3 btn btn-lg btn-rounded-left border border-1 border-dark text-center">
+                                <i class="fas fa-chevron-circle-left fa-lg"></i>
+                                <span>Products</span> 
+                            </a>
+                            <button id="submit-button" class="ml-1 text-uppercase px-4 py-3 btn btn-lg btn-rounded-right border border-1 border-dark text-center">
+                                <span>Edit Product</span>
+                                <i class="fas fa-edit"></i>
+                            </button>
+                    </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+
+{% endblock %}
+
