@@ -57,6 +57,12 @@
                         {% else %}
                             <small class="text-muted">No Rating</small>
                         {% endif %}
+                        {% if request.user.is_superuser %}
+                            <div>
+                                <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                <a href="{% url 'delete_product' product.id %}" class="text-danger">Delete</a>
+                            </div>
+                        {% endif %}
                         <p class="card-text mt-3"><strong>Description:</strong> {{ product.description }}</p>
                         {% if product.flavor %}
                             <p class="card-text mt-3"><strong>Flavor:</strong> {{ product.flavor }}</p>
