@@ -91,20 +91,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-5 ">
-                        <div class="col-3"></div>
-                        <div class="col-3"></div>
-                        <div class="col-6">                        
-                            <a href="{% url 'products' %}" class="text-uppercase px-4 py-3 btn btn-lg col-5 btn-rounded-left border border-1 border-dark text-center">
+                    <div class="form-group d-flex justify-content-end mt-4">
+                            <a href="{% url 'products' %}" class="text-uppercase px-4 py-3 btn btn-lg btn-rounded-left border border-1 border-dark text-center">
                                 <i class="fas fa-chevron-circle-left fa-lg"></i>
-                                <span> Products</span> 
+                                <span>Products</span> 
                             </a>
-                            <button type="submit" class="text-uppercase px-4 py-3 btn btn-lg col-5 btn-rounded-right border border-1 border-dark text-center">Add<i class="fas fa-shopping-cart fa-lg"></i></button>
-                        </div>
-                    </div>
+                            <button id="submit-button" class="ml-1 text-uppercase px-4 py-3 btn btn-lg btn-rounded-right border border-1 border-dark text-center">
+                                <span>Add</span>
+                                <i class="far fa-credit-card"></i>
+                            </button>
+                    </div>                    
                     <input type="hidden" name="current_URL" value="{{ request.path }}">
                 </form>
-
                 </div>
 
                 

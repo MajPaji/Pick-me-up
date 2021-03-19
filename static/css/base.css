@@ -115,12 +115,30 @@ body{
         font-weight: 700;
     }
 
+    #welcome-btn{
+        width: 500%;
+    }
+
     .top-container{
-        padding-top: 200px;
+        padding-top: 230px;
     }
 
     body {
         height: (100vh - 200px);
+    }
+
+    .nav-link{
+        padding: 0rem;
+    }
+
+    .btn.btn-lg.btn-rounded-left,
+    .btn.btn-lg.btn-rounded-right{
+        font-size: 1rem;
+        padding: 0.78rem !important;
+    }
+
+    .input-group{
+        width: 100% !important;
     }
 }
 
