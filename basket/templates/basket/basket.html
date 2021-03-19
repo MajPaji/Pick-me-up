@@ -17,7 +17,7 @@
 {% endblock %}
 
 {% block main_content %}
-    <div class="container">
+    <div class="container table-container">
         <div class="row">
             <div class="col">
                 <div class="col mb-2 text-center">
@@ -26,31 +26,31 @@
                 </div>
             </div>
         </div>
-         {% if basket_items %}
-        <div class="row mt-5">
+        {% if basket_items %}
+           
+        <div class="row mt-5 table-responsive">
            <table class="table table-striped">
             <thead>
                 <tr>
                 <th scope="col">Item Info</th>
-                <th class="text-center" scope="col">Quantity</th>
                 <th class="text-center" scope="col">Price(kg)</th>
-                <th class="text-center" scope="col">Subtotal</th>
-                <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in basket_items %}
                     <tr>
-                        <td class="w-25 align-middle">
-                            <p><strong>{{ item.product.name }}</strong></p>
+                        <td class="mx-auto">
+                            <p><strong>{{ item.product.name }}</strong>
+                            <a id="remove_btn_{{ item.item_id }}" class="remove-btn text-uppercase btn btn-sm">
+                                <i class="fas fa-trash-alt fa-lg"></i>
+                            </a>
+                            <div class="mx-auto mb-2">
                             {% if item.product.image %}
                             <img src="{{ item.product.image.url }}" class="card-img card-img--sm" alt="{{ item.product.name }}">
                             {% else %}
                             <img src="{{ MEDIA_URL }}noimage.png" class="card-img card-img--sm" alt="{{ item.product.name }}">
                             {% endif %}
-                        </td>
-                        <td class="w-25 align-middle">
-                            <p>
+                            </div>
                             <form action="{% url 'update_basket' item.item_id %}" method="POST" class="text-center">
                                 {% csrf_token %}
                                 <div class="form-group input-group">
@@ -61,7 +61,7 @@
                                             </span>
                                         </button>
                                     </div>
-                                    <input type="number" class="border rounded-pill w-25 text-center form-control qty_input" aria-describedby="qty_of_products"
+                                    <input type="number" class="border rounded-pill text-center form-control qty_input" aria-describedby="qty_of_products"
                                     type="number" name="quantity" value="{{ item.qty }}" min="1" max="99" id="id_qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}"> 
                                     <div class="input-group-append">
                                         <button class="increase-qty btn btn-black" data-item_id="{{ item.item_id }}" id="increase-qty_{{ item.item_id }}">
@@ -72,21 +72,16 @@
                                     </div>
                                 </div>
                             </form>
-                            <div class="text-center w-50 mx-auto">
+                            <div class="text-center mx-auto">
                                 <a id="update_btn_{{ item.item_id }}" class="update-btn text-uppercase btn btn-sm rounded-pill border border-1 border-dark">Update</a>
                             </div>
                             </p>
                         </td>
-                        <td class="w-25 align-middle">
-                            <p class="text-center"><strong>{{ item.product.price }}</strong></p>
-                        </td>
-                        <td class="w-25 align-middle">
-                            <p class="text-center"><strong>{{ item.product.price | calculate_subtotal:item.qty }}</strong></p>
-                        </td>
-                        <td class="w-5 align-middle">
-                            <a id="remove_btn_{{ item.item_id }}" class="remove-btn text-uppercase btn btn-sm">
-                                Remove <i class="fas fa-trash-alt"></i>
-                            </a>
+                        
+                        <td class="align-middle">
+                            <p class="text-center">Price (kg): <strong>{{ item.product.price }}</strong></p>
+                            <p class="text-center"><strong>  x {{ item.qty }}</strong></p>
+                            <p class="text-center">Subtotal: <strong>&euro; {{ item.product.price | calculate_subtotal:item.qty }}</strong></p>
                         </td>
                     </tr>
                 {% endfor %}

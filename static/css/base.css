@@ -93,6 +93,10 @@ body{
     border: 1px dashed #000;
 }
 
+.colored-link{
+    color: #8f5b45;
+}
+
 
 
 /* -------------- media queries -------------- */
@@ -139,6 +143,10 @@ body{
 
     .input-group{
         width: 100% !important;
+    }
+
+    .sub-link-text{
+        font-size: 0.8rem;
     }
 }
 

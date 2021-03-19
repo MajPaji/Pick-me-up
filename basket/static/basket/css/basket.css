@@ -9,3 +9,24 @@ html {
 body {
     background: none;
 }
+
+td p {
+    margin-bottom: 0;
+}
+
+
+@media(min-width: 991px){
+    .table-container{
+        width: 50%;
+    }
+
+
+}
+
+@media(max-width: 336px){
+    .table-container{
+        font-size: 0.65rem;
+    }
+
+    
+}

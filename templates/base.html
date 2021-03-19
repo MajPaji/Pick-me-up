@@ -43,8 +43,8 @@
             <div class="col-3 col-sm-4 text-left">
                <li class="list-inline-item dropdown">
                         <a class="nav-link border-0 bg-white text-dark text-center" id="user-dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div><i class="far fa-user fa-lg"></i></div>
-                            <p class="my-1">Account</p>
+                            <div><i class="far fa-user fa-lg {% if request.user.is_authenticated %} colored-link {% else %} text-dark {% endif %}"></i></div>
+                            <p class="my-1 sub-link-text {% if request.user.is_authenticated %} colored-link {% else %} text-dark {% endif %}">Account</p>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="user-dropdownMenuButton">
                             {% if request.user.is_authenticated %}
@@ -66,11 +66,11 @@
                 </a>
             </div>
             <div class="col-3 col-sm-4 d-flex justify-content-end">
-                    <a href="{% url 'basket_view' %}" class="nav-link border-0 bg-white text-center {% if total_cost %} text-info {% else %} text-dark {% endif %}">
+                    <a href="{% url 'basket_view' %}" class="nav-link border-0 bg-white text-center {% if total_cost %} colored-link {% else %} text-dark {% endif %}">
                         <div><i class="fas fa-shopping-cart fa-lg"></i></div>
-                        <p class="my-1 d-flex justify-content-center">
+                        <p class="my-1 d-flex justify-content-center sub-link-text">
                             {% if total_cost %}
-                                &euro; {{ total_cost|floatformat:2 }} excl. tax
+                                &euro; {{ total_cost|floatformat:2 }}
                             {% else %}
                                 &euro; 0.00
                             {% endif %}
