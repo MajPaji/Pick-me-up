@@ -3,6 +3,7 @@ from django.conf import settings
 from decimal import Decimal
 from products.models import Product
 
+
 def basket_contents(request):
 
     basket_items = []
@@ -20,7 +21,8 @@ def basket_contents(request):
             'product': product,
         })
 
-    total_plus_tax = total_cost + Decimal(total_cost * settings.TAX_PERCENTAGE / 100)
+    total_plus_tax = total_cost + (
+        Decimal(total_cost * settings.TAX_PERCENTAGE / 100))
 
     context = {
         'basket_items': basket_items,

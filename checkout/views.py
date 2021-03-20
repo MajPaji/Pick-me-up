@@ -1,4 +1,5 @@
-from django.shortcuts import render, HttpResponse, reverse, redirect, get_object_or_404
+from django.shortcuts import (
+    render, HttpResponse, reverse, redirect, get_object_or_404)
 from django.views.decorators.http import require_POST
 from django.conf import settings
 from django.contrib import messages
@@ -25,7 +26,8 @@ def cache_checkout_data(request):
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(
-            request, 'Sorry, there is a problem with your payment. Please try again later')
+            request, 'Sorry, there is a problem with \
+            your payment. Please try again later')
         return HttpResponse(content=e, status=400)
 
 
@@ -62,14 +64,16 @@ def checkout(request):
                     receipt_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
+                        "One of the products in your \
+                        basket wasn't found in our database. "
                         "Please call us for assistance!")
                     )
                     receipt.delete()
                     return redirect(reverse('basket_view'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[receipt.receipt_number]))
+            return redirect(reverse(
+                'checkout_success', args=[receipt.receipt_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please check your detail information.')

@@ -14,7 +14,7 @@ class ReceiptAdmin(admin.ModelAdmin):
                        'total_cost', 'total_plus_tax',
                        'original_basket', 'stripe_pid')
 
-    fields = ('receipt_number', 'user_profile','date', 'full_name',
+    fields = ('receipt_number', 'user_profile', 'date', 'full_name',
               'email', 'phone_number', 'country',
               'postcode', 'town_or_city', 'street_address',
               'total_cost', 'total_plus_tax', 'original_basket', 'stripe_pid')
