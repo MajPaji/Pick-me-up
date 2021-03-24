@@ -21,14 +21,14 @@
         <div class="row">
             <div class="col">
                 <div class="col mb-2 text-center">
-                    <h2 class="text-uppercase ">Shopping Cart <i class="fas fa-shopping-cart fa-lg"></i></h2>
+                    <h2 class="text-uppercase ">Shopping Cart <i class="fas fa-shopping-cart d-none d-md-inline"></i></h2>
                     <hr class="w-50 mb-1 border border-dark border-1">
                 </div>
             </div>
         </div>
         {% if basket_items %}
            
-        <div class="row mt-5 table-responsive">
+        <div class="row mt-5 table-responsive mx-auto">
            <table class="table table-striped">
             <thead>
                 <tr>
@@ -61,7 +61,7 @@
                                             </span>
                                         </button>
                                     </div>
-                                    <input type="number" class="border rounded-pill text-center form-control qty_input" aria-describedby="qty_of_products"
+                                    <input type="number" class="border rounded-pill text-center form-control qty_input mx-auto w-50" aria-describedby="qty_of_products"
                                     type="number" name="quantity" value="{{ item.qty }}" min="1" max="99" id="id_qty_{{ item.item_id }}" data-item_id="{{ item.item_id }}"> 
                                     <div class="input-group-append">
                                         <button class="increase-qty btn btn-black" data-item_id="{{ item.item_id }}" id="increase-qty_{{ item.item_id }}">
@@ -72,7 +72,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <div class="text-center mx-auto">
+                            <div class="text-center mx-auto w-50">
                                 <a id="update_btn_{{ item.item_id }}" class="update-btn text-uppercase btn btn-sm rounded-pill border border-1 border-dark">Update</a>
                             </div>
                             </p>

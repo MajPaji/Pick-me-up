@@ -43,7 +43,7 @@ def update_basket(request, item_id):
     if quantity > 0:
         basket[item_id] = quantity
         messages.success(
-            request, f'<b>{product.name}</b> quantity updated in your cart')
+            request, f'{product.name} quantity updated in your cart')
     else:
         basket.pop(item_id)
         messages.success(request, f'{product.name} removed from your cart')

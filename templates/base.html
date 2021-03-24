@@ -44,7 +44,13 @@
                <li class="list-inline-item dropdown">
                         <a class="nav-link border-0 bg-white text-dark text-center" id="user-dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div><i class="far fa-user fa-lg {% if request.user.is_authenticated %} colored-link {% else %} text-dark {% endif %}"></i></div>
-                            <p class="my-1 sub-link-text {% if request.user.is_authenticated %} colored-link {% else %} text-dark {% endif %}">Account</p>
+                            <p class="my-1 sub-link-text {% if request.user.is_authenticated %} colored-link {% else %} text-dark {% endif %}">
+                                {% if request.user.is_authenticated %}
+                                    {{ request.user.username }}
+                                {% else %}
+                                    Account
+                                {% endif %}
+                            </p>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="user-dropdownMenuButton">
                             {% if request.user.is_authenticated %}
