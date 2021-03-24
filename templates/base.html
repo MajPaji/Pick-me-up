@@ -41,6 +41,7 @@
     <header class="container-fluid fixed-top">
         <div class="row bg-white pt-2 d-lg-flex">
             <div class="col-3 col-sm-4 text-left">
+            <ul class="list-inline">
                <li class="list-inline-item dropdown">
                         <a class="nav-link border-0 bg-white text-dark text-center" id="user-dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div><i class="far fa-user fa-lg {% if request.user.is_authenticated %} colored-link {% else %} text-dark {% endif %}"></i></div>
@@ -65,6 +66,7 @@
                             {% endif %}
                         </div>
                     </li>
+                </ul>
             </div>
             <div class="col-6 col-sm-4 text-center d-flex align-items-center justify-content-center">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
