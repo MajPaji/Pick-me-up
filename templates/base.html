@@ -43,7 +43,7 @@
             <div class="col-3 col-sm-4 text-left">
             <ul class="list-inline">
                <li class="list-inline-item dropdown">
-                        <a class="nav-link border-0 bg-white text-dark text-center" id="user-dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link border-0 bg-white text-dark text-center" id="user-dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                             <div><i class="far fa-user fa-lg {% if request.user.is_authenticated %} colored-link {% else %} text-dark {% endif %}"></i></div>
                             <p class="my-1 sub-link-text {% if request.user.is_authenticated %} colored-link {% else %} text-dark {% endif %}">
                                 {% if request.user.is_authenticated %}
