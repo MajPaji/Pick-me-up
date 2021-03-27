@@ -37,8 +37,6 @@ $(document).ready(function(){
         var itemId = $(this).data('item_id');
         $(`#update_btn_${itemId}`).css("display", "block");
         handleButtonStatus(itemId);
-    })
-
-
-})
+    });
+});
 

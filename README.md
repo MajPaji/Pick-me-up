@@ -1,45 +1,46 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+![pic](/readme/mockup/mockup_pick_me_up.jpg)
+# [Pick Me Up](https://pick-me-up-project.herokuapp.com/) (Milestone project 4)
 
-Welcome MajPaji,
+## Introduction
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+[Pick-me-up](https://pick-me-up-project.herokuapp.com/) is a python based application website, developed with the Django framework.
+  This website aims to sell coffee and cocoa beans. 
+  Yes, these are from two different plants, but they have a very similar aim; to stimulate and energize. 
+  The name of the website can brilliantly imply these. Pick-me-up can be indicated a webshop to pick up and 
+  buying something. Also, it can simply be stimulating and energizing (if you stress it on me! word).
 
-## Gitpod Reminders
+The coffee and chocolate industry evolved rapidly over the years. 
+The mass production of the beans caused lower quality. 
+This website aims to sell the better quality of these two amazing fruits.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+<br/>
 
-`python3 -m http.server`
+## UX
 
-A blue button should appear to click: *Make Public*,
+This website will present shoppers with coffee and cocoa beans in a user-friendly interface. 
+Shopper, can view the list of the beans, search and sort the products. 
+Also, it would be possible to see more details about individual products, 
+for example, what is the origin of the beans and in which form they can be purchased. 
+This website consists of four main sections. First, viewing and navigation, in this part user 
+can see a list of different products, look at the individual product details. Also, users can 
+find out about different deals and special offers. Second, registration and user account, 
+in this section user can create a personalized user profile, log in and logout, recover 
+their password in case of forgotten, and receive a confirmation email after registration. 
+Third, searching and sorting, in this section user can sort available products by name or 
+different properties like price or rating. Also, can search through the name and description of available products. 
+Forth, purchasing and checkout, 
+easily select the type and quantity of the product and doing the safe purchasing procedure. 
+Also, in the user profile, users can look at their order history.
 
-Another blue button should appear to click: *Open Browser*.
+Here some user stories:
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+* As a coffee lover , this website to find unique coffees which are not available in normal stores.
+* As a shopper, I like special offers.
+* As a user, this webpage help me to understand about different type of coffee and cocoa beans.
 
-A blue button should appear to click: *Make Public*,
+The desktop and mobile resolution wireframes of the Book Review Club can be found in the following links:
 
-Another blue button should appear to click: *Open Browser*.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
+* [Home page desktop](/readme/wireframes/wireframe-home-page-desktop.png) 
+* [Home page mobile](/readme/wireframes/wireframe-home-page-mobile.png)
+* [Main page desktop](/readme/wireframes/wireframe-main-page-desktop.png)
+* [Main page mobile](/readme/wireframes/wireframe-main-page-mobile.png) 
