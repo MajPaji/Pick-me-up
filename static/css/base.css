@@ -120,7 +120,7 @@ body{
     }
 
     #welcome-btn{
-        width: 500%;
+        width: 300px;
     }
 
     .top-container{
@@ -149,6 +149,8 @@ body{
         font-size: 0.8rem;
     }
 }
+
+
 
 
 

@@ -1,19 +1,31 @@
 ![pic](/readme/mockup/mockup_pick_me_up.jpg)
 # [Pick Me Up](https://pick-me-up-project.herokuapp.com/) (Milestone project 4)
 
+## Table of Contents
+
+1. [Introduction](#introduction)<br/>
+2. [UX](#ux)<br/>
+3. [Features](#features)<br/>
+4. [Technologies Used](#technologies-used)<br/>
+5. [Testing](#testing)<br/>
+6. [Deployment](#deployment)<br/>
+7. [Content](#content)<br/>
+8. [Media](#media)<br/>
+9. [Acknowledgements](#acknowledgements)<br/>
+10. [Disclaimer](#disclaimer)<br/>
+
+<br>
+
 ## Introduction
 
 [Pick-me-up](https://pick-me-up-project.herokuapp.com/) is a python based application website, developed with the Django framework.
-  This website aims to sell coffee and cocoa beans. 
-  Yes, these are from two different plants, but they have a very similar aim; to stimulate and energize. 
-  The name of the website can brilliantly imply these. Pick-me-up can be indicated a webshop to pick up and 
-  buying something. Also, it can simply be stimulating and energizing (if you stress it on me! word).
+This website aims to sell coffee and cocoa beans. Yes, these are from two different plants, but they have very similar aims; to stimulate and energize. 
+The name of the website can brilliantly imply these. 
+In the first look, Pick-me-up can be indicated as a webshop to pick up and buying something. But, it also can imply be stimulating and energizing (if you stress it on me! word).
 
 The coffee and chocolate industry evolved rapidly over the years. 
 The mass production of the beans caused lower quality. 
 This website aims to sell the better quality of these two amazing fruits.
-
-<br/>
 
 ## UX
 
@@ -271,6 +283,12 @@ The test results can be found in the following [link](/readme/test/test-13.jpg).
 14. the user can delete the product and the user will be redirected to all products page. 
 The test results can be found in the following [link](/readme/test/test-14.jpg).
 
+### A user get a customized HTTP response for the errors 400, 403,404, 500
+
+15. The user tried to go to the endpoint which there is not URL defied for it, the proper 404 response showed on the page,
+ which the user could be redirected to the home page. The test results can be found in the following [link](/readme/test/test-15.jpg).
+
+
 ## Website validation on different browser and mobile devices
 
 The website was tested on the following browsers with the above scenarios 
@@ -385,7 +403,7 @@ It is possible to run the project in localhost, in your IDE CLI type:
 python3 manage.py runserver
 ```
 
-Now, it is possible to run the website with ctrl+click on the http://127.0.0.1:8000/ link
+Now, it is possible to run the website with ctrl+click on the ://127.0.0.1:8000/ link
 
 ### Deploying to Heroku
 
@@ -550,7 +568,7 @@ or working in tech industry but because of many circumstances, I could not get i
 Code Institute gave me the hope and knowledge which could help me to 
 pursue my career in this area. So, I would like to give my sincere acknowledge to:
 
-* Code institute management team to create this opportunity
+* Code institute management team to make this opportunity
 * Gerard (Gerry) McBride, my mentor, 
 for giving good key guidance through this project and the course and always on-time for the meetings even during weekends
 * Code institute tutor team which try to help understands any 
