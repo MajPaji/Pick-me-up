@@ -6,13 +6,15 @@
 1. [Introduction](#introduction)<br/>
 2. [UX](#ux)<br/>
 3. [Features](#features)<br/>
-4. [Technologies Used](#technologies-used)<br/>
-5. [Testing](#testing)<br/>
-6. [Deployment](#deployment)<br/>
-7. [Content](#content)<br/>
-8. [Media](#media)<br/>
-9. [Acknowledgements](#acknowledgements)<br/>
-10. [Disclaimer](#disclaimer)<br/>
+4. [Database architecture](#database-architecture)<br/>
+5. [Technologies Used](#technologies-used)<br/>
+6. [Testing](#testing)<br/>
+7. [Critical Bug in the production setup](#critical-bug-in-the-production-setup)
+8. [Deployment](#deployment)<br/>
+9. [Content](#content)<br/>
+10. [Media](#media)<br/>
+11. [Acknowledgements](#acknowledgements)<br/>
+12. [Disclaimer](#disclaimer)<br/>
 
 <br>
 
@@ -299,7 +301,6 @@ The test results can be found in the following [link](/readme/test/test-14.jpg).
 15. The user tried to go to the endpoint which there is not URL defied for it, the proper 404 response showed on the page,
  which the user could be redirected to the home page. The test results can be found in the following [link](/readme/test/test-15.jpg).
 
-
 ## Website validation on different browser and mobile devices
 
 The website was tested on the following browsers with the above scenarios 
@@ -337,6 +338,27 @@ There was a just few missing semicolons that were fixed.
 And, undefiled variable $ which can be ignored.
 
 The test results can be found in the following [link](/readme/test/test-js.jpg).
+
+## Critical bug in the production setup
+
+This application website using a free Gmail SMTP server for the SignUp/SignIn procedure. 
+In the Gmail email settings web app administrator need to activate a two-step verifications 
+method, this will provide an app password specific to this Django app. Later, this Gmail 
+address and the password could be used in the Heroku app settings that allows to authenticate and use the 
+Gmail account to send emails which are used for SignUp/SignIn procedures.
+
+This could work fine after the deployment of the 
+project and in real production. But, there is a chance that after a 
+while google recognizes this as a security vulnerability for the Gmail 
+account and automatically turns the security setting off. The explanation 
+given by Google can be found in the following [link](https://support.google.com/accounts/answer/6010255?hl=en) and image below.
+
+![pic](/readme/test/google-security-issue-bug.PNG)
+
+This would lead to this issue that any SignUp/SignIn procedure 
+leads to server error with code 500. So, it is highly recommended to check 
+this setting is not off after a while the app is deployed to 
+Heroku, and checking should be done regularly to prevent this issue.
 
 ## Deployment
 
