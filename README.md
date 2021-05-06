@@ -71,6 +71,17 @@ In the following table, implemented features, and possible future features are p
 | Checkout page: <br> - Getting the customer delivery info for checkout procedure <br> - User can check out without being registered <br> - Payment use Stripe and webhook handler <br> - Email conformation and shopping summary is available after purchasing |
 | Profile page: <br> - User can register to have his/her default delivery information saved <br> - Purchase history/summary is available for registered user <br> - Admin user have possibility to add, edit, delete products in this section |
 
+## Database architecture
+
+In the development step of the project, sqlite3 is used for handling the database. 
+During the production step of the project, the database was switched to 
+PostgreSQL with Heroku as an add-on. Databases have been set up in ``models.py`` of the apps; 
+checkout app with subclasses Receipt, ReceiptLineItem, products app with subclasses Category, 
+Product and UserProfile app with subclasses UserProfile.
+The database structure can be seen in the following image:
+
+![pic](/readme/database/database-structure.PNG)
+
 ## Technologies Used
 
 The following technologies have been used in this project:
