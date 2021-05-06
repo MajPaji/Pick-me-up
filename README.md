@@ -361,7 +361,7 @@ this setting is not off after a while the app is deployed to
 Heroku, and checking should be done regularly to prevent this issue.
 
 Here the Signup/SignIn/SignOut functionality is tested in production mode. 
-The results can be seen in the following [link](/readme/test/test-signup-signin-singout.pdf).
+The results can be seen in the following [link](/readme/test/test-signup-signin-signout.png).
 
 ## Deployment
 
