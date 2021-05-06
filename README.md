@@ -360,6 +360,9 @@ leads to server error with code 500. So, it is highly recommended to check
 this setting is not off after a while the app is deployed to 
 Heroku, and checking should be done regularly to prevent this issue.
 
+Here the Signup/SignIn/SignOut functionality is tested in production mode. 
+The results can be seen in the following [link](/readme/test/test-signup-signin-singout.pdf).
+
 ## Deployment
 
 This part explains how to, clone this repository from GitHub, or work the 
